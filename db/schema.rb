@@ -11,11 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725221329) do
+ActiveRecord::Schema.define(version: 20150727193744) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "username"
+    t.string "encrypted_password"
+    t.string "salt"
   end
 
   create_table "weblinks", force: :cascade do |t|

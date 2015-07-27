@@ -1,0 +1,19 @@
+<%# if !current_user %>
+<h3><%= notice %></h3><br>
+
+<p>Sign Up Here</p>
+
+<%= form_for @user do |f| %>
+  <%= f.label 'Name'  %>
+  <%= f.text_field :name%>
+  <%= f.label 'Email'  %>
+  <%= f.text_field :email %>
+  <%= f.label 'Username'  %>
+  <%= f.text_field :username %>
+  <%= f.label 'Password'  %>
+  <%= f.password_field :encrypted_password  %>
+  <%= f.submit 'SUBMIT'%>
+<% end%>
+
+<%# end %>
+
