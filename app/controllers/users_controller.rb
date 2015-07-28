@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  # before_filter :authorize
   # def index
   #   @user = User.find(params[:id])
   # end
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def create #creating an account
     params.permit!
     @user = User.new(params[:user])
     # @user.name = params[:name]
@@ -20,21 +21,16 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "You Signed up successfully"
       flash[:color]= "valid"
+      session[:user_id] = @user.id
+      redirect_to '/'
     else
-      flash[:notice] = "Form is invalid"
+      redirect_to '/signup'
+      flash[:notice] = "Sign up unsuccessful"
       flash[:color]= "invalid"
     end
-    render "new"
+    # render "new"
   end
-
-  def login
-    @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
-      give_token
-    else
-      # redirect_to 'user#new'
-    end
-  end
+ 
 
   def show
   end
@@ -45,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :username, :encrypted_password, :salt)
+    params.require(:user).permit(:id, :name, :email, :username, :password, :password_confirmation)
   end
 
 end

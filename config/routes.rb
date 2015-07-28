@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   # get 'weblinks/create'
   resources :users
   root to: 'users#index'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  # these routes are for showing users a login form, logging them in, and logging them out.
   # get "/signout" => "sessions#destroy", :as => :signout
 
 
