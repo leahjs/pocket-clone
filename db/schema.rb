@@ -11,22 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730194622) do
-
-  create_table "Weblinks", force: :cascade do |t|
-    t.string  "url"
-    t.integer "user_id"
-    t.boolean "favorite"
-  end
-
-  add_index "Weblinks", ["user_id"], name: "index_weblinks_on_user_id"
+ActiveRecord::Schema.define(version: 20150731170559) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "username"
-    t.string "salt"
     t.string "password_digest"
   end
+
+  create_table "weblinks", force: :cascade do |t|
+    t.string  "url"
+    t.integer "user_id"
+    t.boolean "favorite", default: false
+  end
+
+  add_index "weblinks", ["user_id"], name: "index_weblinks_on_user_id"
 
 end

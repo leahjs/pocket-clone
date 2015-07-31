@@ -1,0 +1,14 @@
+All favorites
+
+<% @fav_links.each do |fav| %>
+  <% if fav.favorited? %>
+   <h5><a href="http://www.<%= fav.url %>"><%= fav.url %></a></h5>
+    <%= link_to unfavorite_weblink_path(fav), method: :patch do %>
+      <i style="opacity: 0.4;" class="fa fa-heart"></i>
+    <% end %>
+  <% end %>
+<% end %><br>
+
+
+<%= link_to 'My links', '/mylinks' %><br>
+<%= link_to 'Home', '/' %><br>

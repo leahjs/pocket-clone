@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 
   # before_filter :authorize
-  # def index
-  # end
+  def index
+  # binding.pry
+  end
+
   def new
     @user = User.new
   end

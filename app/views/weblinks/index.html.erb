@@ -3,24 +3,35 @@
 
 You are signed in <%= current_user.name %> | <%= link_to 'Logout', '/logout' %>
 
+<%= notice %>
+
 <% @weblinks.each do |link| %>
-    <h5><a href="<%= link.url %>"><%= link.url %></a></h5>
+    <h5><a href="http://www.<%= link.url %>"><%= link.url %></a></h5>
   <% if link.favorited? %>
-    <%= link_to favorite_weblink_path(link), method: :patch do %>
-      <i style="opacity: 0.4;" class="fa fa-heart"></i>
-    <% end %>
-    <h5 style="opacity: 0.4;"><strike><a href="<%= link.url %>"><%= link.url %></a></strike></h5>
+    
+    <%#= link_to favorite_weblink_path(link), method: :patch do %>
+    <!--   <i style="opacity: 0.4;" class="fa fa-heart"></i> -->
+        <%= link_to unfavorite_weblink_path(link), method: :patch do %>
+          <i style="opacity: 0.4;" class="fa fa-heart"></i>
+        <% end %>
+    <%# end %>
+
+  <%# elsif %>
+    
   <% else %>
+ 
     <%= link_to favorite_weblink_path(link), method: :patch do %>
-      <i class="fa fa-heart"></i>
+      <i class="fa fa-heart-o"></i>
     <% end %>
+
   <% end %>
 
   <%= link_to "Delete", weblink_path(link), :method => :delete %>
   <%= link_to "Update", edit_weblink_path(link), :method => :patch %>
 
 <% end %><br>
-
+<%#= render 'addlinks', locals: { weblinks: @weblinks }%><br>
+<%= link_to 'My favorite links', '/myfavorites' %><br>
 <%= link_to 'Add links', '/addlinks' %><br>
 <%= link_to 'Home', '/' %><br>
 

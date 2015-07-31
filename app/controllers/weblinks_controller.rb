@@ -1,7 +1,9 @@
 class WeblinksController < ApplicationController
 
   def index
+    # binding.pry
     @weblinks = Weblink.all
+
   end
 
   def new
@@ -40,17 +42,34 @@ class WeblinksController < ApplicationController
       flash[:notice] = "Added Link Successfully"
       redirect_to '/mylinks'
     else
-      flash[:notice] = "Link Addition unsuccessful"
+      flash[:notice] = @weblinks.errors.full_messages.first
+      # flash[:notice] = "Link Addition Unsuccessful"
+      redirect_to '/addlinks'
     end
+  end
+  # def toggle_favorite?
+  #   toggle!(:favorite) if favorite.blank? 
+
+  # end
+  def favorites
+    # @weblink = Weblink.all.find(params[:id])
+    @fav_links = Weblink.all.where(:favorite == true && :user_id == @weblink)
   end
 
   def favorite
-    # binding.pry
     @weblink = Weblink.all.find(params[:id])
     @weblink.update_attribute(:favorite, true)
     flash[:notice] = "Favorited Link Successfully"
     redirect_to '/mylinks'
   end
+
+  def unfavorite
+    @weblink = Weblink.all.find(params[:id])
+    @weblink.update_attribute(:favorite, false)
+    flash[:notice] = "Unfavorited Link Successfully"
+    redirect_to '/mylinks'
+  end
+  # make a check to see if it's been favorited or not
 
   private
 

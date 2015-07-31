@@ -1,14 +1,9 @@
 <h1>Weblinks#new</h1>
 
 You are signed in <%= current_user.name %> | <%= link_to 'Logout', '/logout' %><br>
-
+<%= notice %><br>
 You can add links -- 
-<%= form_for @weblinks do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <%= f.submit "Add link" %>
-<% end %><br>
+<%= render 'addlinks' %><br>
 
 <%= link_to 'My links', '/mylinks' %><br>
 <%= link_to 'Home', '/' %><br>

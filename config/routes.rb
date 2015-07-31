@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :weblinks do
     member do
       patch 'favorite'
+      patch 'unfavorite'
     end
   end
   root to: 'users#index'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   post '/weblinks' => 'weblinks#create'
   # post '/update' => 'weblinks#update'
   delete '/destroy' => 'weblinks#destroy'
+  get '/myfavorites' => 'weblinks#favorites'
   # patch '/weblinks/:id/favorite(.:format)' => 'weblinks#favosrite'
   patch '/weblinks/:id/edit(.:format)' => 'weblinks#edit'
   # PUT or POST '/weblinks/:id/favorite(.:format)' Data: { state: true/false } => 'weblinks#favorite'
