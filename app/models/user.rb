@@ -6,40 +6,12 @@ class User < ActiveRecord::Base
 
   # users.password_hash in the database is a :string
   # include Bcrypt
+  # validates :username, :presence => {:message => "put something"} #, :uniqueness => true, :length => {:in => 3..20}
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, presence: true, :uniqueness => true, format: { with: VALID_EMAIL_REGEX }
 
-  # before_save :encrypt_password
-  # after_save :clear_password
+  # validates :password, :confirmation => true
+  # validates_length_of :password, :in => 6..20, :on => :create
 
-  # def encrypt_password
-  #   if encrypted_password.present? #before its actually encrypted name of column in User table
-  #     self.salt = BCrypt::Engine.generate_salt
-  #     self.encrypted_password= BCrypt::Engine.hash_secret(encrypted_password, salt)
-  #   end
-  # end
-
-  # def clear_password
-  #   self.encrypted_password = nil
-  # end
-
-  # def self.authenticate(user_email, encrypted_password)
-  #   if @user.encrypted_password == encrypted_password
-  #     return true
-  #   end
-
-  # end
-
-#   user = User.find_by_email("mhartl@example.com")
-# >> user.has_password?("foobar")
-
-  # def has_password?(submitted_password)
-    
-  #   encrypted_password == submitted_password
-  # end
-
-  # def self.authenticate(email, submitted_password)
-  #   user = find_by_email(email)
-  #   # return nil  if user.nil?
-  #   return user if user.has_password?(submitted_password)
-  # end
   
 end

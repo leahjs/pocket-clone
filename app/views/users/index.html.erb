@@ -1,9 +1,17 @@
-<h4><%= link_to 'Sign Up Please', new_user_path(@user) %></h4>
 <h1><%#= link_to 'Sign In Please', new_user_path(@user) %></h1>
+<h1>Users#index</h1>
 
 <% if current_user %>
-You are signed in <%= current_user.name %> | <%= link_to 'Logout', '/logout' %>
+<% notice %>
+You are signed in <%= current_user.name %> | <%= link_to 'Logout', '/logout' %><br>
+
+
+<%= link_to 'Add links', '/addlinks' %><br>
+<%= link_to 'My links', '/mylinks' %>
+
+
 <% else %> 
+<h4><%#= link_to 'Sign Up Please', new_user_path(@user) %></h4>
 <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
 <% end %>
 

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   # before_filter :authorize
   # def index
-  #   @user = User.find(params[:id])
   # end
   def new
     @user = User.new
@@ -16,17 +15,22 @@ class UsersController < ApplicationController
     # @user.email = params[:email] 
     # @user.password = params[:encrypted_password]
     # @user.salt = params[:salt]
-    @user.save!
+    if @user.errors.any? # If there are errors, do something
+      @user.errors.each do |attribute, message|
+        message
+      end
+    end
+
+    @user.save
 
     if @user.save
       flash[:notice] = "You Signed up successfully"
-      flash[:color]= "valid"
       session[:user_id] = @user.id
       redirect_to '/'
     else
       redirect_to '/signup'
-      flash[:notice] = "Sign up unsuccessful"
-      flash[:color]= "invalid"
+      
+      flash[:notice] = "Your Sign up was Unsuccessful"
     end
     # render "new"
   end

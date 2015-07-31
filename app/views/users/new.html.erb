@@ -1,9 +1,24 @@
 <%# if !current_user %>
 <h3><%= notice %></h3><br>
 
-<p>Sign Up Here</p>
+<p>Sign Up Here</p><br>
 
 <%= form_for @user do |f| %>
+  <%# if @user.errors.any? %>
+  <!-- <p>Error:</p> -->
+    <%# @user.errors.full_messages.each do |message| %>
+    <%#= message %>
+
+      <%#= pluralize(@user.errors.count, "error")%>
+    <%# end %>
+
+    <% if @user.errors.full_messages.any? %>
+<% @user.errors.full_messages.each do |error_message| %>
+<%= error_message %> <br />
+<% end %>
+<% end %>
+
+    <%# end %>
   <%= f.label 'Name'  %>
   <%= f.text_field :name%>
   <%= f.label 'Email'  %>
@@ -17,5 +32,6 @@
   <%= f.submit 'SUBMIT'%>
 <% end%>
 
-<%# end %>
+<%= link_to 'Login', '/login' %> 
+
 

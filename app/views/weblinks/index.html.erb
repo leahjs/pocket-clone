@@ -1,2 +1,27 @@
 <h1>Weblinks#index</h1>
-<p>Find me in app/views/weblinks/index.html.erb</p>
+<!-- <p>Find me in app/views/weblinks/index.html.erb</p> -->
+
+You are signed in <%= current_user.name %> | <%= link_to 'Logout', '/logout' %>
+
+<% @weblinks.each do |link| %>
+    <h5><a href="<%= link.url %>"><%= link.url %></a></h5>
+  <% if link.favorited? %>
+    <%= link_to favorite_weblink_path(link), method: :patch do %>
+      <i style="opacity: 0.4;" class="fa fa-heart"></i>
+    <% end %>
+    <h5 style="opacity: 0.4;"><strike><a href="<%= link.url %>"><%= link.url %></a></strike></h5>
+  <% else %>
+    <%= link_to favorite_weblink_path(link), method: :patch do %>
+      <i class="fa fa-heart"></i>
+    <% end %>
+  <% end %>
+
+  <%= link_to "Delete", weblink_path(link), :method => :delete %>
+  <%= link_to "Update", edit_weblink_path(link), :method => :patch %>
+
+<% end %><br>
+
+<%= link_to 'Add links', '/addlinks' %><br>
+<%= link_to 'Home', '/' %><br>
+
+

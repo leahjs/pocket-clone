@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   # get 'weblinks/create'
   resources :users
+  resources :weblinks do
+    member do
+      patch 'favorite'
+    end
+  end
   root to: 'users#index'
 
   get '/signup' => 'users#new'
@@ -12,6 +17,16 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  get '/mylinks' => 'weblinks#index'
+  get '/addlinks' => 'weblinks#new'
+  post '/weblinks' => 'weblinks#create'
+  # post '/update' => 'weblinks#update'
+  delete '/destroy' => 'weblinks#destroy'
+  # patch '/weblinks/:id/favorite(.:format)' => 'weblinks#favosrite'
+  patch '/weblinks/:id/edit(.:format)' => 'weblinks#edit'
+  # PUT or POST '/weblinks/:id/favorite(.:format)' Data: { state: true/false } => 'weblinks#favorite'
+
   # these routes are for showing users a login form, logging them in, and logging them out.
   # get "/signout" => "sessions#destroy", :as => :signout
 
