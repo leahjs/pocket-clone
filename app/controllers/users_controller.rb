@@ -31,8 +31,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       redirect_to '/signup'
-      
-      flash[:notice] = "Your Sign up was Unsuccessful"
+      flash[:notice] = @user.errors.full_messages.first
     end
     # render "new"
   end

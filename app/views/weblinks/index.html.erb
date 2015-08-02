@@ -6,7 +6,9 @@ You are signed in <%= current_user.name %> | <%= link_to 'Logout', '/logout' %>
 <%= notice %>
 
 <% @weblinks.each do |link| %>
-    <h5><a href="http://www.<%= link.url %>"><%= link.url %></a></h5>
+  <h5><a href=""><%= link.url %></a></h5>
+  <%= link_to "Show", weblink_path(link), :method => :get %>
+    <!-- <h5><a href="http://www.<%#= link.url %>"><%#= link.url %></a></h5> -->
   <% if link.favorited? %>
     
     <%#= link_to favorite_weblink_path(link), method: :patch do %>

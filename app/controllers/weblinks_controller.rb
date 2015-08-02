@@ -2,13 +2,29 @@ class WeblinksController < ApplicationController
 
   def index
     # binding.pry
-    @weblinks = Weblink.all
+    @weblinks = Weblink.where(:user_id => session[:user_id])
+
+  end
+
+  def show
+    require 'pismo'
+    @url_id = Weblink.all.find(params[:id])
+# # Load a Web page (you could pass an IO object or a string with existing HTML data along, as you prefer)
+    @doc = Pismo::Document.new(@url_id.url)
+    # binding.pry
+    
+
+# doc.title     # => "Cramp: Asychronous Event-Driven Ruby Web App Framework"
+# doc.author    # => "Peter Cooper"
+# doc.lede      # => "Cramp (GitHub repo) is a new, asynchronous evented Web app framework by Pratik Naik of 37signals (and the Rails core team). It's built around Ruby's EventMachine library and was designed to use event-driven I/O throughout - making it ideal for situations where you need to handle a large number of open connections (such as Comet systems or streaming APIs.)"
+# doc.keywords  # => [["cramp", 7], ["controllers", 3], ["app", 3], ["basic", 2], ..., ... ]
 
   end
 
   def new
     @weblinks = Weblink.new
   end
+
   def edit
     @weblinks = Weblink.all.find(params[:id])
   end
@@ -21,14 +37,9 @@ class WeblinksController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @link = Weblink.all.find(params[:id])
     @link.destroy
-    # link[:links] = nil
     redirect_to '/mylinks'
-    # @weblink = Weblink.find(params[:id])
-    # @link = Weblink.find(params[:links])
-    # session[:user_id] = nil
   end
 
   def create
@@ -53,7 +64,8 @@ class WeblinksController < ApplicationController
   # end
   def favorites
     # @weblink = Weblink.all.find(params[:id])
-    @fav_links = Weblink.all.where(:favorite == true && :user_id == @weblink)
+    # binding.pry
+    @fav_links = Weblink.where(:favorite => true)
   end
 
   def favorite
@@ -69,7 +81,6 @@ class WeblinksController < ApplicationController
     flash[:notice] = "Unfavorited Link Successfully"
     redirect_to '/mylinks'
   end
-  # make a check to see if it's been favorited or not
 
   private
 

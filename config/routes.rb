@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/mylinks' => 'weblinks#index'
   get '/addlinks' => 'weblinks#new'
   post '/weblinks' => 'weblinks#create'
+  get '/weblinks' => 'weblinks#show'
   # post '/update' => 'weblinks#update'
   delete '/destroy' => 'weblinks#destroy'
   get '/myfavorites' => 'weblinks#favorites'
