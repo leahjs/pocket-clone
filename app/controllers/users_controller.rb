@@ -12,11 +12,6 @@ class UsersController < ApplicationController
   def create #creating an account
     params.permit!
     @user = User.new(params[:user])
-    # @user.name = params[:name]
-    # @user.username = params[:username]
-    # @user.email = params[:email] 
-    # @user.password = params[:encrypted_password]
-    # @user.salt = params[:salt]
     if @user.errors.any? # If there are errors, do something
       @user.errors.each do |attribute, message|
         message

@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
   
-  def new 
+  def new
   end
   
   def create #when the user signs in .aka. login
+    # binding.pry
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id

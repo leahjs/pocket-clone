@@ -1,40 +1,86 @@
-<h1>Weblinks#index</h1>
+<nav>
+    <!-- <img href="../../assets/images/pocket-logo.png"/> -->
+    <img src="http://i.imgur.com/tpOIcII.png?1" title="source: imgur.com" />
+    <h5 class="list-type">My List</h5>
+<a href="settings"><h5 class="namo"><%= current_user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Logout', '/logout' %></h5></a>
+</nav>
+
+
+<div class="container">
+<!-- <h1>Weblinks#index</h1> -->
 <!-- <p>Find me in app/views/weblinks/index.html.erb</p> -->
 
-You are signed in <%= current_user.name %> | <%= link_to 'Logout', '/logout' %>
+  <%= notice %>
 
-<%= notice %>
-
-<% @weblinks.each do |link| %>
-  <h5><a href=""><%= link.url %></a></h5>
-  <%= link_to "Show", weblink_path(link), :method => :get %>
-    <!-- <h5><a href="http://www.<%#= link.url %>"><%#= link.url %></a></h5> -->
-  <% if link.favorited? %>
-    
-    <%#= link_to favorite_weblink_path(link), method: :patch do %>
-    <!--   <i style="opacity: 0.4;" class="fa fa-heart"></i> -->
-        <%= link_to unfavorite_weblink_path(link), method: :patch do %>
-          <i style="opacity: 0.4;" class="fa fa-heart"></i>
+  <% @weblinks.each do |link| %>
+  <div class="link-container">
+  <ul>
+    <li>
+      <h5><a href=""><%= link.url.slice!(/[^http:\/\/www\.].+(.com)/) %></a></h5>
+      <%= link_to "Show", weblink_path(link), :method => :get %>
+        <!-- <h5><a href="http://www.<%#= link.url %>"><%#= link.url %></a></h5> -->
+      <% if link.favorited? %>
+        <%#= link_to favorite_weblink_path(link), method: :patch do %>
+        <!--   <i style="opacity: 0.4;" class="fa fa-heart"></i> -->
+            <%= link_to unfavorite_weblink_path(link), method: :patch do %>
+              <i style="opacity: 0.4;" class="fa fa-heart"></i>
+            <% end %>
+        <%# end %>
+      <% else %>
+     
+        <%= link_to favorite_weblink_path(link), method: :patch do %>
+          <i class="fa fa-heart-o"></i>
         <% end %>
-    <%# end %>
 
-  <%# elsif %>
-    
-  <% else %>
- 
-    <%= link_to favorite_weblink_path(link), method: :patch do %>
-      <i class="fa fa-heart-o"></i>
-    <% end %>
+      <% end %>
 
-  <% end %>
+      <%= link_to "Delete", weblink_path(link), :method => :delete %>
+      <%= link_to "Update", edit_weblink_path(link), :method => :patch %>
+      </li>
+    </ul>
+</div>
+  <% end %><br>
+</div>    
 
-  <%= link_to "Delete", weblink_path(link), :method => :delete %>
-  <%= link_to "Update", edit_weblink_path(link), :method => :patch %>
-
-<% end %><br>
+<div class="sidenav">
 <%#= render 'addlinks', locals: { weblinks: @weblinks }%><br>
-<%= link_to 'My favorite links', '/myfavorites' %><br>
-<%= link_to 'Add links', '/addlinks' %><br>
-<%= link_to 'Home', '/' %><br>
+<div class="myfavorite"><%= link_to 'My favorite links', '/myfavorites' %><br></div>
+<div class="addlinks"><%= link_to 'Add links', '/addlinks' %><br></div>
+<div class="home"><%= link_to 'Home', '/' %><br></div>
+</div>
 
 
+
+
+
+
+<!--------------- Drop down test -------------->
+
+
+<table>
+  
+  <tr>
+    <td>
+
+  <nav id="navigation" class="site-navigation" role="navigation">
+  <ul class="menu">
+    <li class="menu-item"><a href="#">News</a></li>
+    <li class="menu-item"><a href="#">Snippets</a>
+      <ul class="dropdown">
+        <li class="menu-item sub-menu"><a href="#">CSS</a></li>
+        <li class="menu-item sub-menu"><a href="#">HTML</a></li>
+        <li class="menu-item sub-menu"><a href="#">jQuery</a></li>
+        <li class="menu-item sub-menu"><a href="#">PHP</a></li>
+        <li class="menu-item sub-menu"><a href="#">WordPress</a></li>
+      </ul>
+    </li>
+    <li class="menu-item"><a href="#">Inspiration</a></li>
+    <li class="menu-item"><a href="#">Tools</a></li>
+    <li class="menu-item"><a href="#">Tutorials</a></li>
+  </ul>
+</nav>
+
+    </td>
+ </tr>
+
+</table>

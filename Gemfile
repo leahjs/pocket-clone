@@ -25,6 +25,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 #pocket-stuff
 gem 'pismo'
+gem 'metainspector'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -10,27 +10,267 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree ../../../vendor/assets/stylesheets/.
- *= require_tree .
- *= require_self
+ //= require_tree ../../../vendor/assets/stylesheets/.
+//= require_tree .
+ //= require_self
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
+
+
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+      // padding-top: 70px;
+      // padding-bottom: 30px;
+      height: 100%;
+      width: 100%;
+      background-color: #f4f4f6;
+      background: #1f1f1f;
+      // margin-left: 300px; 
 }
 
+#sidenav a {
+      margin-top: -1235px;
+      margin-left: 2px;
+      color: #FFFFFF;
+}
+
+
+
+a {
+  color: #FFF;
+}
+
+
+ul {
+      list-style-type: none;
+      margin-bottom: -1px;
+}
+
+li {
+      border-style: solid;
+      border-width: thin;
+      // border-color: #ccc;
+      padding-top: 8px;
+      padding-bottom: 16px;
+      height: 80px;
+      width: 962px;
+      margin-left: 100px;
+      clear: both;
+
+}
+
+li a {
+      margin-left: 9px;
+
+}
+
+img {
+      cursor: pointer;
+      display: block;
+      height: 26px;
+      left: 7px;
+      margin-top: 10px;
+      overflow: hidden;
+      text-indent: -99em;
+      top: .4em;
+      width: 80px; 
+      position: absolute;
+      z-index: 8002;
+}
+
+nav {
+      padding:0;
+      margin:0; 
+      padding-left: 20px; 
+      height: 50px; 
+      text-align:center; 
+      padding-top: 14px;
+      border-bottom-color: #FFFFFF;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+}
+
+.rainbow-bars1 {
+      background-color: #afecc3;
+      float: left;
+      height: 4px;  
+      width: 25%;
+}
+.rainbow-bars2 {
+      background-color: #84c3c0;
+      float: left;
+      height: 4px;
+      width: 25%;
+}
+
+.rainbow-bars3 {
+      background-color: #d45a68;
+      float: left;
+      height: 4px;
+      width: 25%;
+}
+
+.rainbow-bars4 {
+      background-color: #ecbf63;
+      float: left;
+      height: 4px;
+      width: 25%;
+}
+
+.list-type {
+      color: #FFFFFF;
+      float: left;
+      font-size: 2.2em;
+      // font-weight: 600;
+      height: auto;
+      line-height: 1em;
+      // margin-left: 17.5%;
+      margin-left: 200px;
+      // margin-top: 0.8em;
+      margin-top: 70px;
+      text-indent: 0;
+      width: auto;
+      white-space: nowrap;
+      font-weight: normal;
+}
+
+.name {
+      margin-top: 500px;
+      height: 20px;
+      position: absolute;  
+      left: 160px;
+      top: 7px;
+      width: 100%;
+      -webkit-user-select: none;
+}
+
+.namo {
+  color: #FFFFFF;
+
+}
+
+
+.container {
+      margin-left: 68px;
+      margin-top: 88px;
+      margin-right: 5px;
+}
+
+
 .theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+      position: static;
+      display: block;
+      margin-bottom: 20px;
 }
 
 .theme-showcase > p > .btn {
-  margin: 5px 0;
+      margin: 5px 0;
 }
+
+.sidenav {
+  margin-top: -345px;
+  margin-left: 27px;
+}
+
+.myfavorite {
+  margin-top: 35px;
+  margin-left: 27px;
+}
+
+.addlinks {
+  margin-top: 28px;
+  margin-left: 27px;
+}
+
+
+.home {
+  margin-top: 25px;
+  margin-left: 27px;
+}
+
+
+
+
+
+
+
+/******************* Drop down test **********************/
+
+
+
+.site-navigation {
+  display: block;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 40px;
+}
+
+.site-navigation ul {
+  background: #3498DB;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.site-navigation li {
+  color: #fff;
+  background: #3498DB;
+  display: block;
+  float: left;
+  margin: 0 2px 0 0;
+  padding: 12px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+  
+.site-navigation li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.site-navigation li:hover {
+  @include transition(background, 0.2s);
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.site-navigation ul li ul {
+  background: #FFFFFF;
+  visibility: hidden;
+  float: left;
+  min-width: 150px;
+  position: absolute;
+  transition: visibility 0.65s ease-in;
+  margin-top:12px;
+  left: 0;
+  z-index: 999;
+}
+
+.site-navigation ul li:hover > ul,
+.site-navigation ul li ul:hover {
+   visibility: visible;
+}
+
+.site-navigation ul li ul li {
+  clear: both;
+  padding: 5px 0 5px 18px;
+  width: 100%;
+}
+
+.site-navigation ul li ul li:hover {
+  background: #FFFFFF;
+}
+ 
+table, tr, td {
+  margin-top: 340px;
+
+}
+
+

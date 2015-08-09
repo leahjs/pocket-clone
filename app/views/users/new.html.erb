@@ -1,8 +1,12 @@
 <%# if !current_user %>
 <h3><%= notice %></h3><br>
 
-<p>Sign Up Here</p><br>
+<!-- <p>Sign Up Here</p><br> -->
+<img src="https://ununsplash.imgix.net/photo-1433650552684-d4004a945d6c?dpr=1.5&amp;fit=crop&amp;fm=jpg&amp;h=725&amp;q=75&amp;w=1075" alt="Photo By Thomas Lefebvre" data-width="4800" data-height="3109" style="height: 864px; position:fixed; background-size: 80px 60px;
+    background-repeat: no-repeat;">
 
+<h1 style="position:fixed; margin-left: 650px; margin-top: 95px;">Sign Up Here | <%= link_to 'Login', '/login' %> </h1>
+<form class="form-horizontal">
 <%= form_for @user do |f| %>
   <%# if @user.errors.any? %>
   <!-- <p>Error:</p> -->
@@ -12,26 +16,56 @@
       <%#= pluralize(@user.errors.count, "error")%>
     <%# end %>
 
-    <% if @user.errors.full_messages.any? %>
-<% @user.errors.full_messages.each do |error_message| %>
-<%= error_message %> <br />
-<% end %>
-<% end %>
-
+    <%# if @user.errors.full_messages.any? %>
+<%# @user.errors.full_messages.each do |error_message| %>
+<%#= error_message %> <br />
+<%# end %>
+<%# end %>
     <%# end %>
+    <div class="form-group">
+    <div class="col-sm-10", style="padding-left: 700px;padding-top: 134px; ">
   <%= f.label 'Name'  %>
   <%= f.text_field :name%>
+
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <div class="col-sm-10", style="padding-left: 700px;padding-top: 20px; ">
   <%= f.label 'Email'  %>
   <%= f.text_field :email %>
+
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <div class="col-sm-10", style="padding-left: 700px;padding-top: 20px; ">
   <%= f.label 'Username'  %>
   <%= f.text_field :username %>
+
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <div class="col-sm-10", style="padding-left: 700px;padding-top: 20px; ">
   <%= f.label 'Password'  %>
   <%= f.password_field :password  %>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-10", style="padding-left: 700px;padding-top: 20px; ">
   <%= f.label 'Password Confirmation'  %>
   <%= f.password_field :password_confirmation  %>
-  <%= f.submit 'SUBMIT'%>
-<% end%>
 
-<%= link_to 'Login', '/login' %> 
+    </div>
+  </div>
+    <div style='position:fixed; margin-left: 710px; margin-top:12px;'><%= f.submit 'SUBMIT'%></div>
+  
+<% end%>
+</form>
+
+<%#= link_to 'Login', '/login' %> 
 
 
