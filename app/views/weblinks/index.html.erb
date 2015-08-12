@@ -1,10 +1,10 @@
 <nav>
     <!-- <img href="../../assets/images/pocket-logo.png"/> -->
     <img src="http://i.imgur.com/tpOIcII.png?1" title="source: imgur.com" />
-    <h5 class="list-type">My List</h5>
-<a href="settings"><h5 class="namo"><%= current_user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Logout', '/logout' %></h5></a>
+<div class="current"><h5 class="fixplease"><%= current_user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Logout', '/logout' %></h5></div>
 </nav>
 
+    <h5 class="list-type">My List</h5>
 
 <div class="container">
 <!-- <h1>Weblinks#index</h1> -->
@@ -16,6 +16,7 @@
   <div class="link-container">
   <ul>
     <li>
+      <%# @imgbest.images.best %>
       <h5><a href=""><%= link.url.slice!(/[^http:\/\/www\.].+(.com)/) %></a></h5>
       <%= link_to "Show", weblink_path(link), :method => :get %>
         <!-- <h5><a href="http://www.<%#= link.url %>"><%#= link.url %></a></h5> -->
@@ -43,12 +44,17 @@
 </div>    
 
 <div class="sidenav">
+    <!-- <div class="mylist">My List</h5> -->
+
 <%#= render 'addlinks', locals: { weblinks: @weblinks }%><br>
-<div class="myfavorite"><%= link_to 'My favorite links', '/myfavorites' %><br></div>
+<div class="myfavorite"><%= link_to 'Favorites', '/myfavorites' %><br></div>
 <div class="addlinks"><%= link_to 'Add links', '/addlinks' %><br></div>
 <div class="home"><%= link_to 'Home', '/' %><br></div>
 </div>
 
+<div class="line"></div>
+
+<div class="archives"><%= link_to 'Archives', '/' %><br></div>
 
 
 
@@ -57,7 +63,40 @@
 <!--------------- Drop down test -------------->
 
 
-<table>
+
+<!-- <li id="pagenav_options">
+  <a title="" href="#">
+  <span class="nav-username">Leah</span>
+  <span class="nav-downnotch"></span></a>
+<div id="pagenav_options_container" class="dropSelector innerpopover-active" style>
+    <a>
+      </a>
+<div class="popover-new popover-new-bottomleft popover-active" style="top: 23px; left: -180.000049591065px;"><div class="popover-new-header">
+    <a class="popover-new-close" href="#"></a>
+    </div>
+<div class="arrow"></div><ul class="popover-new-list">
+  <li class="popover-new-listitem premium" val="premium">
+    <a href="#">Premium<span class="nav-icon"></span>
+     </a>
+    </li>
+<li class="popover-new-listitem help" val="help">
+  <a href="#">Help<span class="nav-icon"></span>
+    </a>
+</li>
+  <li class="popover-new-listitem options" val="options">
+<a href="#">Options<span class="nav-icon"></span></a>
+    </li>
+<li class="popover-new-listitem logout last" val="logout">
+  <a href="#">Logout<span class="nav-icon"></span>
+    </a>
+    </li>
+    </ul>
+  </div>
+  </div>
+</li>
+ -->
+
+<!-- <table>
   
   <tr>
     <td>
@@ -83,4 +122,4 @@
     </td>
  </tr>
 
-</table>
+</table> -->

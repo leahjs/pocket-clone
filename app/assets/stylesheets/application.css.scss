@@ -19,6 +19,15 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
 
+// .nav-default .nav-selected, .nav-default .nav-selected:hover { sidenav list type selected color
+//     color: #a6a6a6;
+//     cursor: default;
+
+// li border
+    // border: 1px solid #dcdce0;
+    
+// nav border bottom
+    // border-bottom: 1px solid #e6e6e8;
 
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
@@ -28,20 +37,26 @@ body {
       height: 100%;
       width: 100%;
       background-color: #f4f4f6;
-      background: #1f1f1f;
+      // background: #1f1f1f;
       // margin-left: 300px; 
 }
 
 #sidenav a {
       margin-top: -1235px;
       margin-left: 2px;
-      color: #FFFFFF;
+      color: #cccccc;
 }
 
 
 
 a {
-  color: #FFF;
+  color: #000
+  // color: #cccccc;
+  
+}
+
+a:hover {
+  color: #50bcb6;
 }
 
 
@@ -53,6 +68,7 @@ ul {
 li {
       border-style: solid;
       border-width: thin;
+      border-color: #dcdce0;
       // border-color: #ccc;
       padding-top: 8px;
       padding-bottom: 16px;
@@ -85,11 +101,12 @@ img {
 nav {
       padding:0;
       margin:0; 
-      padding-left: 20px; 
+      // padding-left: 20px; 
       height: 50px; 
       text-align:center; 
-      padding-top: 14px;
-      border-bottom-color: #FFFFFF;
+      padding-top: 8px;
+      border-bottom-color: #e6e6e8;
+      // border-bottom-color: #383737;
       border-bottom-style: solid;
       border-bottom-width: thin;
 }
@@ -122,16 +139,17 @@ nav {
 }
 
 .list-type {
-      color: #FFFFFF;
+      color: #000;
+      // color: #FFFFFF;
       float: left;
       font-size: 2.2em;
       // font-weight: 600;
       height: auto;
       line-height: 1em;
       // margin-left: 17.5%;
-      margin-left: 200px;
+      margin-left: 222px;
+      margin-top: 34px;
       // margin-top: 0.8em;
-      margin-top: 70px;
       text-indent: 0;
       width: auto;
       white-space: nowrap;
@@ -148,11 +166,25 @@ nav {
       -webkit-user-select: none;
 }
 
-.namo {
-  color: #FFFFFF;
-
+.bree {
+  margin-bottom: 40px;
+  margin-left: 700px;
+      color: #000;
+  // color: #FFFFFF;
+  
 }
 
+.bree a:hover {
+  color: #50bcb6;
+}
+
+.current {
+  text-align: right;
+}
+
+.fixplease {
+  padding-right: 67px;
+}
 
 .container {
       margin-left: 68px;
@@ -170,33 +202,78 @@ nav {
 .theme-showcase > p > .btn {
       margin: 5px 0;
 }
-
+/************side nav****************/
 .sidenav {
-  margin-top: -345px;
+  margin-top: -411px;
   margin-left: 27px;
 }
 
-.myfavorite {
+.line {
+  height: 2px;
+  width: 20px;
+  margin-top: 15px;
+  margin-left: 57px;
+  background-color: #383737;
+}
+
+.myfavorite a {
   margin-top: 35px;
   margin-left: 27px;
+  text-color: #a9a9a9;
 }
 
 .addlinks {
-  margin-top: 28px;
+  margin-top: 15px;
   margin-left: 27px;
 }
 
 
 .home {
-  margin-top: 25px;
+  margin-top: 15px;
   margin-left: 27px;
 }
 
+.archives {
+  margin-top: 10px;
+  margin-left: 55px;
+}
 
+/******************* show page **********************/
 
+.reader-content {
+  font-family: serif;
+  max-width: 512px;
+      width: auto;
+    margin: 0 auto;
+    color: #313131;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-user-select: auto;
+}
+.doctitle {
+  margin-top: 30px;
+  text-align: left;
+}
 
+.author {
+  color: #b1b2b2;
+  margin-bottom: 18px;
+  // width: 360px;
+  // clear: both;
 
+}
 
+.original {
+  color: #b1b2b2;
+  padding-left: 175px;
+}
+/******************* Drop down test **********************/
+
+.show-page-nav {
+  text-align: left;
+  margin-left: 16px;
+  margin-top: 3px;
+}
 
 /******************* Drop down test **********************/
 
