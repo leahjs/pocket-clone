@@ -1,9 +1,25 @@
 <nav>
-    <!-- <img href="../../assets/images/pocket-logo.png"/> -->
-    <img src="http://i.imgur.com/tpOIcII.png?1" title="source: imgur.com" />
+  <!-- <img href="../../assets/images/pocket-logo.png"/> -->
+  <im2g src="http://i.imgur.com/tpOIcII.png?1" title="source: imgur.com" />
 <div class="current"><h5 class="fixplease"><%= current_user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Logout', '/logout' %></h5></div>
 </nav>
 
+
+<!--==================================-->
+<div class="sidenav">
+      <!-- <div class="mylist">My List</h5> -->
+
+  <%#= render 'addlinks', locals: { weblinks: @weblinks }%><br>
+  <div class="myfavorite"><%= link_to 'Favorites', '/myfavorites' %><br></div>
+  <div class="addlinks"><%= link_to 'Add links', '/addlinks' %><br></div>
+  <div class="home"><%= link_to 'Home', '/' %><br></div>
+
+  <div class="line"></div>
+
+  <div class="archives"><%= link_to 'Archives', '/' %><br></div>
+</div>
+
+<!--==================================-->
     <h5 class="list-type">My List</h5>
 
 <div class="container">
@@ -13,11 +29,24 @@
   <%= notice %>
 
   <% @weblinks.each do |link| %>
-  <div class="link-container">
+      <%#binding.pry%>
+      <% @img_best = MetaInspector.new("#{link.url}") %>
+      <% @webpage = Pismo::Document.new("#{link.url}") %>
+
+  <!-- <div class="link-container"> -->
   <ul>
     <li>
-      <%# @imgbest.images.best %>
-      <h5><a href=""><%= link.url.slice!(/[^http:\/\/www\.].+(.com)/) %></a></h5>
+      <img class="li-images" src="<%= @img_best.images.best%>">
+      <% if @img_best.images.best%>
+        <img class="li-images"<% @img_best.images.best %> />
+      <% else %>
+        <img class="li-images" src="../../assets/images/non-picture-pocket.jpg" />
+      <% end %>
+
+
+      <h5 class="link-title"><a href=""><%= @webpage.title %></a>
+      <!-- <div class="restful-links"> -->
+      <div class="hover-links">
       <%= link_to "Show", weblink_path(link), :method => :get %>
         <!-- <h5><a href="http://www.<%#= link.url %>"><%#= link.url %></a></h5> -->
       <% if link.favorited? %>
@@ -37,27 +66,16 @@
 
       <%= link_to "Delete", weblink_path(link), :method => :delete %>
       <%= link_to "Update", edit_weblink_path(link), :method => :patch %>
+      </div>
+      </h5>
+      <h5 class="link-url"><a href=""><%= link.url.slice!(/[^http:\/\/www\.].+(.com)/) %></a></h5>
+
       </li>
     </ul>
-</div>
+  
+<!-- </div> -->
   <% end %><br>
 </div>    
-
-<div class="sidenav">
-    <!-- <div class="mylist">My List</h5> -->
-
-<%#= render 'addlinks', locals: { weblinks: @weblinks }%><br>
-<div class="myfavorite"><%= link_to 'Favorites', '/myfavorites' %><br></div>
-<div class="addlinks"><%= link_to 'Add links', '/addlinks' %><br></div>
-<div class="home"><%= link_to 'Home', '/' %><br></div>
-</div>
-
-<div class="line"></div>
-
-<div class="archives"><%= link_to 'Archives', '/' %><br></div>
-
-
-
 
 
 <!--------------- Drop down test -------------->

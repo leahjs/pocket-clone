@@ -10,7 +10,7 @@ class WeblinksController < ApplicationController
     require 'pismo'
     @url_id = Weblink.all.find(params[:id])
     @doc = Pismo::Document.new(@url_id.url)
-    @imgbest = MetaInspector.new(@url_id.url)
+    # @img_best = MetaInspector.new(@url_id.url)
   end
 
   def new

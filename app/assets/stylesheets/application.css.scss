@@ -66,11 +66,12 @@ ul {
 }
 
 li {
+  background-color: white;
       border-style: solid;
       border-width: thin;
       border-color: #dcdce0;
       // border-color: #ccc;
-      padding-top: 8px;
+      // padding-top: 8px;
       padding-bottom: 16px;
       height: 80px;
       width: 962px;
@@ -86,14 +87,14 @@ li a {
 
 img {
       cursor: pointer;
-      display: block;
-      height: 26px;
-      left: 7px;
-      margin-top: 10px;
+      // display: block;
+      // height: 26px;
+      // left: 7px;
+      // margin-top: 10px;
       overflow: hidden;
-      text-indent: -99em;
-      top: .4em;
-      width: 80px; 
+      // text-indent: -99em;
+      // top: .4em;
+      // width: 80px; 
       position: absolute;
       z-index: 8002;
 }
@@ -139,21 +140,17 @@ nav {
 }
 
 .list-type {
-      color: #000;
-      // color: #FFFFFF;
-      float: left;
-      font-size: 2.2em;
-      // font-weight: 600;
-      height: auto;
-      line-height: 1em;
-      // margin-left: 17.5%;
-      margin-left: 222px;
-      margin-top: 34px;
-      // margin-top: 0.8em;
-      text-indent: 0;
-      width: auto;
-      white-space: nowrap;
-      font-weight: normal;
+    color: #000;
+    float: left;
+    font-size: 2.2em;
+    height: auto;
+    line-height: 1em;
+    margin-left: 111px;
+    margin-top: 34px;
+    text-indent: 0;
+    width: auto;
+    white-space: nowrap;
+    font-weight: normal;
 }
 
 .name {
@@ -187,32 +184,69 @@ nav {
 }
 
 .container {
-      margin-left: 68px;
-      margin-top: 88px;
-      margin-right: 5px;
+    margin-left: 68px;
+    margin-top: -75px;
+    margin-right: 42px;
+    float: right;
 }
 
 
+.li-images {
+  width: 102px;
+  height: 78px;
+}
+
+.link-title {
+    margin-top: 20px;
+    margin-left: 120px;
+    font-size: 15px
+}
+
+.link-url {
+    margin-top: 12px;
+    margin-left: 120px;
+    font-size: .83em;
+    font-weight: normal;
+}
+.link-url a{
+  color: #999;
+    // color: #dcdce0;
+}
+.link-url a:hover {
+  color: #50bcb6;
+}
+
+.restful-links {
+  margin-left: 112px;
+}
+
+.hover-links {
+  float: right;
+  margin-right: 33px;
+}
+
 .theme-dropdown .dropdown-menu {
-      position: static;
-      display: block;
-      margin-bottom: 20px;
+    position: static;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .theme-showcase > p > .btn {
       margin: 5px 0;
 }
-/************side nav****************/
+/************ side nav ****************/
 .sidenav {
-  margin-top: -411px;
-  margin-left: 27px;
+    float: left;
+    margin-top: 13px;
+    margin-left: 13px;
+    width: 97px;
 }
 
 .line {
   height: 2px;
   width: 20px;
   margin-top: 15px;
-  margin-left: 57px;
+  margin-left: 27px;
   background-color: #383737;
 }
 
@@ -235,7 +269,7 @@ nav {
 
 .archives {
   margin-top: 10px;
-  margin-left: 55px;
+  margin-left: 27px;
 }
 
 /******************* show page **********************/
@@ -276,7 +310,6 @@ nav {
 }
 
 /******************* Drop down test **********************/
-
 
 
 .site-navigation {
